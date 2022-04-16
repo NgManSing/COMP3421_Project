@@ -22,7 +22,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(isset($_FILES["icon"]) && $_FILES["icon"]["error"] == 0){
         $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "png" => "image/png");
         $filename = $_FILES["icon"]["name"];
-        $filetype = $_FILES["icon"]["type"];
+        $fileformat = $_FILES["icon"]["format"];
         $filesize = $_FILES["icon"]["size"];
     
         // Verify file type
@@ -37,10 +37,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         if(in_array($filetype, $allowed)){
             // Check whether file exists before uploading it
             if(file_exists("upload/" . $filename)){
-                echo $filename . " is already exists.";
+                echo $filename . "is already exists, please upload the new icon!";
             } else{
                 move_uploaded_file($_FILES["icon"]["tmp_name"], "upload/" . $filename);
-                echo "Your file was uploaded successfully.";
+                echo "Uploaded successfully!";
             } 
         } else{
             echo "Error: There was a problem uploading your file. Please try again."; 
@@ -50,14 +50,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
     }   
     
-    //display the details of the uploaded file and stores it in a temporary directory on the web server.
+    //show the information of the uploaded file and stores it in a temporary directory on the web server.
     if($_FILES["photo"]["error"] > 0){
         echo "Error: " . $_FILES["icon"]["error"] . "<br>";
     } else{
-        echo "File Name: " . $_FILES["icon"]["name"] . "<br>";
-        echo "File Type: " . $_FILES["icon"]["type"] . "<br>";
-        echo "File Size: " . ($_FILES["icon"]["size"] / 1024) . " KB<br>";
-        echo "Stored in: " . $_FILES["icon"]["tmp_name"];
+        echo "File name: " . $_FILES["icon"]["name"] . "<br>";
+        echo "File format: " . $_FILES["icon"]["format"] . "<br>";
+        echo "File size: " . ($_FILES["icon"]["size"] / 1024) . " KB<br>";
+        echo "Storage: " . $_FILES["icon"]["tmp_name"];
     }
     
     
