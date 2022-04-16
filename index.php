@@ -17,7 +17,50 @@ $username_err = $password_err = $login_err = "";
  
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
- 
+
+    // Check if icon is empty
+    if(isset($_FILES["icon"]) && $_FILES["icon"]["error"] == 0){
+        $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "png" => "image/png");
+        $filename = $_FILES["icon"]["name"];
+        $filetype = $_FILES["icon"]["type"];
+        $filesize = $_FILES["icon"]["size"];
+    
+        // Verify file type
+        $ext = pathinfo($filename, PATHINFO_EXTENSION);
+        if(!array_key_exists($ext, $allowed)) die("Please upload jpg., jpeg., png. ");
+    
+        // Verify file size - 10MB maximum
+        $maxsize = 10 * 1024 * 1024;
+        if($filesize > $maxsize) die("Please select a file not larger than 10 MB");
+    
+        // Verify the file
+        if(in_array($filetype, $allowed)){
+            // Check whether file exists before uploading it
+            if(file_exists("upload/" . $filename)){
+                echo $filename . " is already exists.";
+            } else{
+                move_uploaded_file($_FILES["icon"]["tmp_name"], "upload/" . $filename);
+                echo "Your file was uploaded successfully.";
+            } 
+        } else{
+            echo "Error: There was a problem uploading your file. Please try again."; 
+        }
+        } else{
+            echo "Error: " . $_FILES["icon"]["error"];
+        }
+    }   
+    
+    //display the details of the uploaded file and stores it in a temporary directory on the web server.
+    if($_FILES["photo"]["error"] > 0){
+        echo "Error: " . $_FILES["icon"]["error"] . "<br>";
+    } else{
+        echo "File Name: " . $_FILES["icon"]["name"] . "<br>";
+        echo "File Type: " . $_FILES["icon"]["type"] . "<br>";
+        echo "File Size: " . ($_FILES["icon"]["size"] / 1024) . " KB<br>";
+        echo "Stored in: " . $_FILES["icon"]["tmp_name"];
+    }
+    
+    
     // Check if username is empty
     if(empty(trim($_POST["username"]))){
         $username_err = "Please enter username.";
