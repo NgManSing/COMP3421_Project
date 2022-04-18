@@ -7,8 +7,8 @@
 ?>
 
 <?php 
-    $user_id = mysqli_real_escape_string($conn, $_GET['user_id']);
-    $sql = mysqli_query($conn, "SELECT * FROM users WHERE unique_id = {$user_id}");
+    $user_id = mysqli_real_escape_string($link, $_GET['user_id']);
+    $sql = mysqli_query($link, "SELECT * FROM users WHERE unique_id = {$user_id}");
     if(mysqli_num_rows($sql) > 0){
         $row = mysqli_fetch_assoc($sql);
     }else{
