@@ -38,7 +38,7 @@ $currentuser = mysqli_fetch_array($result, MYSQLI_ASSOC);
                 <div class="my-account-info">
                     <?php echo '<img src="'.$currentuser["icon"].'" alt="'.$_SESSION['username'].'" class="image-icon">'; ?>
 					<div class="content">
-                        <div><?php echo $_SESSION['username']?></div>
+                        <div class="username"><?php echo $_SESSION['username']?></div>
                         <div id="caption"><?php echo empty($currentuser["caption"])?"Welcome to use Chat Together!":$currentuser["caption"];?><span><button id="pen-button" onclick="clicked_pen()"><i class="fa fa-pencil"></i></button></span></div>
                         <p><i class="fa fa-circle" id="my-status-indicator"></i> &nbsp Active</p>
                     </div>
@@ -81,7 +81,7 @@ $currentuser = mysqli_fetch_array($result, MYSQLI_ASSOC);
                                                 <div class="account-info">
                                                     <img src="'.$icon.'" alt="'.$username.'" class="image-icon">
                                                     <div class="content">
-                                                        <span>'.$username.'</span>
+                                                        <span class="username">'.$username.'</span>
                                                         <p>'.$input.'</p>
                                                     </div>
                                                 </div>
