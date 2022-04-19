@@ -30,8 +30,7 @@ function showMsg() {
 	xhttp.onload = function() {
 		if (this.responseText != last_responseText){
 			last_responseText = this.responseText;
-			var addition_part = this.responseText.replace(document.getElementById("msg-box").innerHTML, "");
-			$('#msg-box').append(addition_part);
+			document.getElementById("msg-box").innerHTML = this.responseText;
 			document.getElementById("msg-box").scrollTo(0,document.body.scrollHeight);
 		}
 	}

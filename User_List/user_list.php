@@ -21,9 +21,6 @@ $currentuser = mysqli_fetch_array($result, MYSQLI_ASSOC);
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat Together</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -39,7 +36,7 @@ $currentuser = mysqli_fetch_array($result, MYSQLI_ASSOC);
                     <?php echo '<img src="'.$currentuser["icon"].'" alt="'.$_SESSION['username'].'" class="image-icon">'; ?>
 					<div class="content">
                         <div><?php echo $_SESSION['username']?></div>
-                        <div id="caption"><?php echo empty($currentuser["caption"])?"Welcome to use Chat Together!":$currentuser["caption"];?><span><button id="pen-button" onclick="clicked_pen()"><i class="fa fa-pencil"></i></button></span></div>
+                        <div id="caption"><?php echo empty($currentuser["caption"])?"":$currentuser["caption"];?><span><button id="pen-button" onclick="clicked_pen()"><i class="fa fa-pencil"></i></button></span></div>
                         <p><i class="fa fa-circle" id="my-status-indicator"></i> &nbsp Active</p>
                     </div>
                 </div>
@@ -74,7 +71,7 @@ $currentuser = mysqli_fetch_array($result, MYSQLI_ASSOC);
                                 if(mysqli_stmt_fetch($stmt)){
                                     if(empty($search) || str_contains($username, $search)){
                                         $counter += 1;
-                                        $input = empty($caption)?"Welcome to use Chat Together!":$caption;
+                                        $input = empty($caption)?"":$caption;
                                         echo 
                                         '<a href="./redirect.php?id='.$id.'" class="accountbutton">
                                             <div class="account">

@@ -44,7 +44,7 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
                     if(mysqli_stmt_fetch($stmt)){
                         if(empty($search) || str_contains($username, $search)){
                             $counter += 1;
-                            $input = empty($caption)?"Welcome to use Chat Together!":$caption;
+                            $input = empty($caption)?"":$caption;
                             echo 
                             '<a href="./redirect.php?id='.$id.'" class="accountbutton">
                                 <div class="account">
