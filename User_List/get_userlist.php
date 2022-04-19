@@ -42,7 +42,7 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
                 // list all the query result
                 for($x = 0; $x < $number_of_list; $x++){
                     if(mysqli_stmt_fetch($stmt)){
-                        if(empty($search) || str_contains($username, $search)){
+                        if(empty($search) || strpos($username, $search) !== false){
                             $counter += 1;
                             $input = empty($caption)?"":$caption;
                             echo 
