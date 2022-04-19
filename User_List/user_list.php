@@ -78,7 +78,7 @@ $currentuser = mysqli_fetch_array($result, MYSQLI_ASSOC);
                                                 <div class="account-info">
                                                     <img src="'.$icon.'" alt="'.$username.'" class="image-icon">
                                                     <div class="content">
-                                                        <span>'.$username.'</span>
+                                                        <span class="username">'.$username.'</span>
                                                         <p>'.$input.'</p>
                                                     </div>
                                                 </div>
