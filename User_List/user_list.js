@@ -1,7 +1,5 @@
-        // Get the pop_up
+        // Get the elements
         var pop_up = document.getElementById("pop-up");
-
-        // Get the button that opens the pop_up
         var button = document.getElementsByClassName("close")[0];
 
         // When the user clicks the button, open the pop_up 
@@ -9,11 +7,12 @@
             pop_up.style.display = "block";
         }
 
+        // When the user clicks the close button, the pop-up close
         button.onclick = function(){
             pop_up.style.display = "none";
         }
 
-        // When the user clicks anywhere outside of the pop_up, close it
+        // When the user clicks anywhere outside of the pop_up, the pop-up close
         window.onclick = function(event) {
             if (event.target == pop_up) {
                 pop_up.style.display = "none";
