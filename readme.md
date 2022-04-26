@@ -29,11 +29,3 @@ Users can logout of the chat app by clicking the logout button. After logging ou
 ## FAQ
 **Q**: Can I search the firend I want to talk to? <br>
 **A**: Yes, you can use the search function to shortlist target person in userlist.
-
-## Member and contribution
-|Name|Student ID|Contributions|
-|---|---|---|
-|Ng Ka Wang|1804xxxxD|Backend (php): <br>1. User list - implemented icon feature (icon next to loggout button) and chatroom redirection <br><br>Number of codes:|
-|Kwok Hoi Yuet|2103xxxxD|Frontend (html/css): <br> 1. Sign up- implementation <br><br> Backend (php): <br> 1. Sign up - implementated with Ng Man Sing and debugging the icon feature <br><br>Number of codes:|
-|Lau Wing Yun|1804xxxxD|Number of codes:|
-|Ng Man Sing |1806xxxxD|Frontend (html/css): <br> 1. User list - implementation <br><br> Backend (php): <br> 1. Login - implementated user validation <br> 2. User list - implementated features like search and list existing people in the database <br> 3. Sign up - implementated with Kwok Hoi Yuet and debugging the icon feature <br><br>Number of codes:|
